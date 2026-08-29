@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 import bob from "../assets/Characters/bob.png"
 import chad from "../assets/Characters/chad.png"
@@ -28,6 +29,37 @@ import BigUnc from "../assets/Characters/Uncle.png"
 
 const CreateComic = () => {
   let navigate = useNavigate()
+
+  const [sticker, setSticker] = useState([])
+  const [panels, setPanels] = useState([
+    {
+      id: 1,
+    },
+    {
+      id: 2,
+    },
+    {
+      id: 3,
+    },
+    {
+      id: 4,
+    },
+    {
+      id: 5,
+    },
+    {
+      id: 6,
+    },
+    {
+      id: 7,
+    },
+    {
+      id: 8,
+    },
+    {
+      id: 9,
+    },
+  ])
 
   let characters = [
     { id: 1, src: bob, alt: "Bob" },
@@ -154,6 +186,7 @@ const CreateComic = () => {
       alt: "the oldest Uncle",
     },
   ]
+  
 
   return (
     <>
@@ -185,6 +218,11 @@ const CreateComic = () => {
           <img key={character.id} src={character.src} alt={character.alt} />
         ))}
       </div>
+      <article className="comic">
+        {panels.map((panel)=>(
+          <div key={panel.id} className="panel"></div>
+        ))}
+      </article>
     </>
   )
 }
