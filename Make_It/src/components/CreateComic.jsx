@@ -30,7 +30,7 @@ import BigUnc from "../assets/Characters/Uncle.png"
 const CreateComic = () => {
   let navigate = useNavigate()
 
-  const [sticker, setSticker] = useState([])
+  // const [sticker, setSticker] = useState([])
   const [panels, setPanels] = useState([
     {
       id: 1,
@@ -186,20 +186,57 @@ const CreateComic = () => {
       alt: "the oldest Uncle",
     },
   ]
-  
+
+  const [dropped, setDropped] = useState(null)
+  // to find which character was dropped find charecter id and whaich one wss dropped
+  const findCharacter = characters.find((charecter) => charecter.id === dropped)
+  // const DragStart = (e, character) => {
+  //   e.dataTransfer.setData("character", character.id)
+  // }
 
   return (
     <>
+      <button onClick={() => navigate("/")}>Back</button>
+
       <article className="comic">
-        <div className="panel">
+        <div
+          className="panel"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => {
+            const character = parseInt(e.dataTransfer.getData("character"))
+            setDropped(character)
+          }}
+        >
+          {dropped && (
+            <img
+              src={findCharacter.src}
+              alt={findCharacter.alt}
+              style={{ width: "200px", height: "auto" }}
+            />
+          )}
           <p className="text top-left">Suddenly...</p>
           <p className="text bottom-right">...something amazing happened</p>
         </div>
-        <div className="panel">
+        <div
+          className="panel"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={(e) => {
+            const characterX = parseInt(e.dataTransfer.getData("character"))
+            setDropped(characterX)
+          }}
+        >
+
+          {dropped && (
+            <img
+              src={findCharacter.src}
+              alt={findCharacter.alt}
+              style={{ width: "200px", height: "auto" }}
+            />
+          )}
           <p className="text top-left">Try resizing...</p>
           <p className="text bottom-right">...it's responsive</p>
         </div>
-        <div className="panel">
+        <div className="panel" >
           <p className="speech">A speech bubble</p>
         </div>
         <div className="panel"></div>
@@ -212,17 +249,25 @@ const CreateComic = () => {
         </div>
       </article>
 
-      <button onClick={() => navigate("/")}>Back</button>
-      <div className="Character-Rendering">
-        {characters.map((character) => (
-          <img key={character.id} src={character.src} alt={character.alt} />
-        ))}
-      </div>
       <article className="comic">
-        {panels.map((panel)=>(
+        {panels.map((panel) => (
           <div key={panel.id} className="panel"></div>
         ))}
       </article>
+
+      <div className="Character-Rendering">
+        {characters.map((character) => (
+          <img
+            draggable="true"
+            key={character.id}
+            src={character.src}
+            alt={character.alt}
+            onDragStart={(e) =>
+              e.dataTransfer.setData("character", character.id)
+            }
+          />
+        ))}
+      </div>
     </>
   )
 }
