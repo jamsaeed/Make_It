@@ -30,37 +30,46 @@ import BigUnc from "../assets/Characters/Uncle.png"
 const CreateComic = () => {
   let navigate = useNavigate()
 
-  // const [sticker, setSticker] = useState([])
+  // const [sticker, setSticker] = useState([]) // no need
   const [panels, setPanels] = useState([
     {
       id: 1,
+      droppedCharacter: null,
     },
     {
       id: 2,
+      droppedCharacter: null,
     },
     {
       id: 3,
+      droppedCharacter: null,
     },
     {
       id: 4,
+      droppedCharacter: null,
     },
     {
       id: 5,
+      droppedCharacter: null,
     },
     {
       id: 6,
+      droppedCharacter: null,
     },
     {
       id: 7,
+      droppedCharacter: null,
     },
     {
       id: 8,
+      droppedCharacter: null,
     },
     {
       id: 9,
+      droppedCharacter: null,
     },
   ])
-
+  // const droppedC = panels.find((dC) => dC.id === panels)// no need
   let characters = [
     { id: 1, src: bob, alt: "Bob" },
 
@@ -188,17 +197,61 @@ const CreateComic = () => {
   ]
 
   const [dropped, setDropped] = useState(null)
-  // to find which character was dropped find charecter id and whaich one wss dropped
-  const findCharacter = characters.find((charecter) => charecter.id === dropped)
-  // const DragStart = (e, character) => {
-  //   e.dataTransfer.setData("character", character.id)
-  // }
+  // to find which character was dropped find charecter id and which one wss dropped
+
+  // const findCharacter = characters.find((charecter) => charecter.id === dropped)
+
+  // const charObj = characters.find((charaObj) => charaObj.id === panel.droppedCharacter)
 
   return (
     <>
       <button onClick={() => navigate("/")}>Back</button>
 
       <article className="comic">
+        {panels.map((panel) => {
+          const charObj = characters.find(
+            (charaObj) => charaObj.id === panel.droppedCharacter
+          )
+          return (
+            <div
+              key={panel.id}
+              className="panel"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                const character = parseInt(e.dataTransfer.getData("character"))
+                setPanels(
+                  panels.map((p)=> {
+                    if (p.id === panel.id){
+                      return{...p, droppedCharacter: true}
+                    } else {
+                      return p
+                    }
+                  })
+                )
+              }}
+            >
+              {panel.droppedCharacter && (
+                <img src={charObj.src} alt={charObj.alt} />
+              )}
+            </div>
+          )
+        })}
+      </article>
+
+      <div className="Character-Rendering">
+        {characters.map((character) => (
+          <img
+            draggable="true"
+            key={character.id}
+            src={character.src}
+            alt={character.alt}
+            onDragStart={(e) =>
+              e.dataTransfer.setData("character", character.id)
+            }
+          />
+        ))}
+      </div>
+      {/* <article className="comic">
         <div
           className="panel"
           onDragOver={(e) => e.preventDefault()}
@@ -225,7 +278,6 @@ const CreateComic = () => {
             setDropped(characterX)
           }}
         >
-
           {dropped && (
             <img
               src={findCharacter.src}
@@ -236,7 +288,7 @@ const CreateComic = () => {
           <p className="text top-left">Try resizing...</p>
           <p className="text bottom-right">...it's responsive</p>
         </div>
-        <div className="panel" >
+        <div className="panel">
           <p className="speech">A speech bubble</p>
         </div>
         <div className="panel"></div>
@@ -247,27 +299,7 @@ const CreateComic = () => {
         <div className="panel">
           <p className="text bottom-right">THE END</p>
         </div>
-      </article>
-
-      <article className="comic">
-        {panels.map((panel) => (
-          <div key={panel.id} className="panel"></div>
-        ))}
-      </article>
-
-      <div className="Character-Rendering">
-        {characters.map((character) => (
-          <img
-            draggable="true"
-            key={character.id}
-            src={character.src}
-            alt={character.alt}
-            onDragStart={(e) =>
-              e.dataTransfer.setData("character", character.id)
-            }
-          />
-        ))}
-      </div>
+      </article> */}
     </>
   )
 }
