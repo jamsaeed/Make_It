@@ -30,7 +30,6 @@ import BigUnc from "../assets/Characters/Uncle.png"
 const CreateComic = () => {
   let navigate = useNavigate()
 
-  // const [sticker, setSticker] = useState([]) // no need
   const [panels, setPanels] = useState([
     {
       id: 1,
@@ -69,7 +68,6 @@ const CreateComic = () => {
       droppedCharacter: null,
     },
   ])
-  // const droppedC = panels.find((dC) => dC.id === panels)// no need
   let characters = [
     { id: 1, src: bob, alt: "Bob" },
 
@@ -197,11 +195,7 @@ const CreateComic = () => {
   ]
 
   const [dropped, setDropped] = useState(null)
-  // to find which character was dropped find charecter id and which one wss dropped
 
-  // const findCharacter = characters.find((charecter) => charecter.id === dropped)
-
-  // const charObj = characters.find((charaObj) => charaObj.id === panel.droppedCharacter)
 
   return (
     <>
@@ -256,55 +250,7 @@ const CreateComic = () => {
           />
         ))}
       </div>
-      {/* <article className="comic">
-        <div
-          className="panel"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            const character = parseInt(e.dataTransfer.getData("character"))
-            setDropped(character)
-          }}
-        >
-          {dropped && (
-            <img
-              src={findCharacter.src}
-              alt={findCharacter.alt}
-              style={{ width: "200px", height: "auto" }}
-            />
-          )}
-          <p className="text top-left">Suddenly...</p>
-          <p className="text bottom-right">...something amazing happened</p>
-        </div>
-        <div
-          className="panel"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            const characterX = parseInt(e.dataTransfer.getData("character"))
-            setDropped(characterX)
-          }}
-        >
-          {dropped && (
-            <img
-              src={findCharacter.src}
-              alt={findCharacter.alt}
-              style={{ width: "200px", height: "auto" }}
-            />
-          )}
-          <p className="text top-left">Try resizing...</p>
-          <p className="text bottom-right">...it's responsive</p>
-        </div>
-        <div className="panel">
-          <p className="speech">A speech bubble</p>
-        </div>
-        <div className="panel"></div>
-        <div className="panel"></div>
-        <div className="panel"></div>
-        <div className="panel"></div>
-        <div className="panel"></div>
-        <div className="panel">
-          <p className="text bottom-right">THE END</p>
-        </div>
-      </article> */}
+
     </>
   )
 }
