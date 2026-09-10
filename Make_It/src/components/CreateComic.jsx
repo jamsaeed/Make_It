@@ -222,7 +222,7 @@ const CreateComic = () => {
                 setPanels(
                   panels.map((p)=> {
                     if (p.id === panel.id){
-                      return{...p, droppedCharacter: true}
+                      return{...p, droppedCharacter: character}
                     } else {
                       return p
                     }
@@ -231,8 +231,10 @@ const CreateComic = () => {
               }}
             >
               {panel.droppedCharacter && (
-                <img src={charObj.src} alt={charObj.alt} />
+                <img src={charObj.src} alt={charObj.alt}
+                 style={{width: "200px", height: "auto"}}/>
               )}
+{console.log(charObj, "charObj")}
             </div>
           )
         })}
