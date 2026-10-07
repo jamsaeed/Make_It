@@ -241,7 +241,7 @@ const CreateComic = () => {
                 )
               }}
             >
-              
+
               {panel.droppedCharacter.map((charId, index) => {
                 const CharacterObject = characters.find((c) => c.id === charId)
                 if (!CharacterObject) return null
@@ -254,7 +254,26 @@ const CreateComic = () => {
                   />
                 )
               })}
-              {console.log(charObj, "charObj")}
+
+            <input
+            type="text"
+            placeholder="Give your character a dialogue..."
+            value={panel.SpeechBubble}
+            onChange={(e) =>
+              setPanels(
+                panels.map((p)=>{
+                  if(p.id === panel.id){
+                    return {...p, SpeechBubble: e.target.value}
+                  } else {
+                    return p
+                  }
+                })
+              )
+            }
+
+            />
+            {panel.SpeechBubble && <p className="speech">{panel.SpeechBubble}</p>}
+
             </div>
           )
         })}
