@@ -227,12 +227,13 @@ const CreateComic = () => {
             >
               {panel.droppedCharacter.map((charId, index) => {
                 const CharacterObject = characters.find((c) => c.id === charId)
+                if(!CharacterObject) return null
                 return (
                   <img
-                    key
+                    key={index}
                     src={CharacterObject.src}
                     alt={CharacterObject.alt}
-                    style={{ width: "158px", height: "auto" }}
+                    style={{ width: "145px", height: "auto" }}
                   />
                 )
               })}
