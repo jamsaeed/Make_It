@@ -33,39 +33,39 @@ const CreateComic = () => {
   const [panels, setPanels] = useState([
     {
       id: 1,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 2,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 3,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 4,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 5,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 6,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 7,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 8,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 9,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
   ])
   let characters = [
@@ -196,7 +196,6 @@ const CreateComic = () => {
 
   const [dropped, setDropped] = useState(null)
 
-
   return (
     <>
       <button onClick={() => navigate("/")}>Back</button>
@@ -215,7 +214,10 @@ const CreateComic = () => {
                 setPanels(
                   panels.map((p) => {
                     if (p.id === panel.id) {
-                      return { ...p, droppedCharacter: character }
+                      return {
+                        ...p,
+                        droppedCharacter: [...p.droppedCharacter, character],
+                      }
                     } else {
                       return p
                     }
@@ -223,34 +225,39 @@ const CreateComic = () => {
                 )
               }}
             >
-              {panel.droppedCharacter && (
-                <img
-                  src={charObj.src}
-                  alt={charObj.alt}
-                  style={{ width: "158px", height: "auto" }}
-                />
-              )}
+              {panel.droppedCharacter.map((charId, index) => {
+                const CharacterObject = characters.find((c) => c.id === charId)
+                if(!CharacterObject) return null
+                return (
+                  <img
+                    key={index}
+                    src={CharacterObject.src}
+                    alt={CharacterObject.alt}
+                    style={{ width: "145px", height: "auto" }}
+                  />
+                )
+              })}
               {console.log(charObj, "charObj")}
             </div>
           )
         })}
       </article>
 
-    <div className="footerNav-bar">
-      <div className="Character-Rendering">
-        {characters.map((character) => (
-          <img
-            draggable="true"
-            key={character.id}
-            src={character.src}
-            alt={character.alt}
-            onDragStart={(e) =>
-              e.dataTransfer.setData("character", character.id)
-            }
-          />
-        ))}
+      <div className="footerNav-bar">
+        <div className="Character-Rendering">
+          {characters.map((character) => (
+            <img
+              draggable="true"
+              key={character.id}
+              src={character.src}
+              alt={character.alt}
+              onDragStart={(e) =>
+                e.dataTransfer.setData("character", character.id)
+              }
+            />
+          ))}
+        </div>
       </div>
-    </div>
     </>
   )
 }
