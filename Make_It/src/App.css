@@ -125,3 +125,52 @@ html, body {
 .panel:nth-child(4n+4) {
   background-image:radial-gradient(circle, rgb(255, 214, 244), rgb(255, 177, 211));
 }
+
+.Character-Rendering {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.Character-Rendering img {
+  width: 80px;
+  height: auto;
+  cursor: grab;
+}
+
+.footerNav-bar {
+  position: fixed;
+  bottom: 0;
+  background-color: #501a89;
+  width:100%;
+   transform: translateY(90%);
+   transition: transform 0.4s ease;
+
+}
+.footerNav-bar:hover {
+  transform: translateY(0);
+}
+button {
+    background-color: #501a89d8;
+    opacity: 12px;
+    border-radius: 15px;
+    height: 60px;
+    width: 60px;
+    margin: 9px;
+
+    border: 5px solid #ceaef0;
+    color: white;
+}
+
+button:hover{
+ background-color: #c9b2e2d8;
+    opacity: 12px;
+    border-radius: 15px;
+    height: 60px;
+    width: 60px;
+    margin: 9px;
+    border: 5px solid #e2cdf8;
+    color: rgb(147, 144, 144);
+}

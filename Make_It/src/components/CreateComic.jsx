@@ -200,7 +200,6 @@ const CreateComic = () => {
   return (
     <>
       <button onClick={() => navigate("/")}>Back</button>
-
       <article className="comic">
         {panels.map((panel) => {
           const charObj = characters.find(
@@ -228,7 +227,7 @@ const CreateComic = () => {
                 <img
                   src={charObj.src}
                   alt={charObj.alt}
-                  style={{ width: "200px", height: "auto" }}
+                  style={{ width: "158px", height: "auto" }}
                 />
               )}
               {console.log(charObj, "charObj")}
@@ -237,6 +236,7 @@ const CreateComic = () => {
         })}
       </article>
 
+    <div className="footerNav-bar">
       <div className="Character-Rendering">
         {characters.map((character) => (
           <img
@@ -250,7 +250,7 @@ const CreateComic = () => {
           />
         ))}
       </div>
-
+    </div>
     </>
   )
 }
