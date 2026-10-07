@@ -33,41 +33,43 @@ const CreateComic = () => {
   const [panels, setPanels] = useState([
     {
       id: 1,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 2,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 3,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 4,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 5,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 6,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 7,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 8,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
     {
       id: 9,
-      droppedCharacter: null,
+      droppedCharacter: [],
     },
   ])
+
+  
   let characters = [
     { id: 1, src: bob, alt: "Bob" },
 
