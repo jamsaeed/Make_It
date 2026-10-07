@@ -141,6 +141,8 @@ html, body {
 }
 
 .footerNav-bar {
+  color: #ffffff;
+  text-align: center;
   position: fixed;
   bottom: 0;
   background-color: #501a89;

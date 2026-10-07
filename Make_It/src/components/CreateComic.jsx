@@ -34,38 +34,53 @@ const CreateComic = () => {
     {
       id: 1,
       droppedCharacter: [],
+      SpeechBubble: "",
     },
     {
       id: 2,
       droppedCharacter: [],
+      SpeechBubble: "",
     },
     {
       id: 3,
       droppedCharacter: [],
+      SpeechBubble: "",
     },
     {
       id: 4,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
     {
       id: 5,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
     {
       id: 6,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
     {
       id: 7,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
     {
       id: 8,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
     {
       id: 9,
       droppedCharacter: [],
+      SpeechBubble: "",
+
     },
   ])
   let characters = [
@@ -211,6 +226,7 @@ const CreateComic = () => {
               onDragOver={(e) => e.preventDefault()}
               onDrop={(e) => {
                 const character = parseInt(e.dataTransfer.getData("character"))
+
                 setPanels(
                   panels.map((p) => {
                     if (p.id === panel.id) {
@@ -225,9 +241,10 @@ const CreateComic = () => {
                 )
               }}
             >
+              
               {panel.droppedCharacter.map((charId, index) => {
                 const CharacterObject = characters.find((c) => c.id === charId)
-                if(!CharacterObject) return null
+                if (!CharacterObject) return null
                 return (
                   <img
                     key={index}
@@ -244,6 +261,8 @@ const CreateComic = () => {
       </article>
 
       <div className="footerNav-bar">
+        {" "}
+        Drag The Characters
         <div className="Character-Rendering">
           {characters.map((character) => (
             <img
