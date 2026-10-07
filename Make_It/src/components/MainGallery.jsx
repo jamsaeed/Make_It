@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
-
+import { useState, useEffect } from "react"
 const MainGallery = () => {
 
 let navigate = useNavigate()
+
+const[comics , setComics] = useState()
 
 return (
   <>

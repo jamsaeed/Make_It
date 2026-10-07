@@ -257,7 +257,7 @@ const CreateComic = () => {
 
             <input
             type="text"
-            placeholder="Give your character a dialogue..."
+            placeholder="Add your dialogue..."
             value={panel.SpeechBubble}
             onChange={(e) =>
               setPanels(
