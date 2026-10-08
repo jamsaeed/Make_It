@@ -8,7 +8,7 @@ const[savedComics , setSavedComics] = useState([])
 
 
 useEffect(()=> {
-  const saved = JSON.parse(localStorage.getItem('savedComics')) || []
+  const saved = JSON.parse(localStorage.getItem('SaveComic')) || []
   setSavedComics(saved)
 }, [])
 
@@ -16,7 +16,11 @@ return (
   <>
 <button className="CreateComic" onClick={()=> navigate("/create-your-comic")}>Create Your Comic</button>
 
-
+{savedComics.map((comic) => (
+<div key={comic.id}>
+ Comic #{comic.id}
+</div>
+))}
   </>
 )
 

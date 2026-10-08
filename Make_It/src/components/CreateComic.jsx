@@ -209,16 +209,22 @@ const CreateComic = () => {
     },
   ]
 
-  const saveComics = () => {
+  const saveComic = () => {
+     const existingComic = JSON.parse(localStorage.getItem('SaveComic')) || []
+     const newComic = {id: Date.now(), panels: panels }
+    // here can be written any names it doesn't have to be SaveComic
+     localStorage.setItem('SaveComic', JSON.stringify([...existingComic, newComic]))
+      console.log('button was clicked');
+      navigate('/')
 
-   localStorage.setItem('', JSON.stringify([]))
-   
   }
 
   return (
     <>
       <button onClick={() => navigate("/")}>Back</button>
-      <button className="save-comic">Save Comic</button>
+
+      <button className="save-comic"  onClick={saveComic}>Save Comic</button>
+
       <article className="comic">
         {panels.map((panel) => {
           const charObj = characters.find(
