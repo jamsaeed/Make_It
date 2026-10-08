@@ -4,7 +4,13 @@ const MainGallery = () => {
 
 let navigate = useNavigate()
 
-const[comics , setComics] = useState()
+const[savedComics , setSavedComics] = useState([])
+
+
+useEffect(()=> {
+  const saved = JSON.parse(localStorage.getItem('savedComics')) || []
+  setSavedComics(saved)
+}, [])
 
 return (
   <>
@@ -18,3 +24,12 @@ return (
 
 }
 export default MainGallery
+
+// // Save data
+// localStorage.setItem("key", "value");
+
+// // Retrieve data
+// const value = localStorage.getItem("key");
+
+// // Remove data
+// localStorage.removeItem("key");

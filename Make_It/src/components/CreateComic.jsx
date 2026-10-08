@@ -209,11 +209,16 @@ const CreateComic = () => {
     },
   ]
 
-  const [dropped, setDropped] = useState(null)
+  const saveComics = () => {
+
+   localStorage.setItem('', JSON.stringify([]))
+   
+  }
 
   return (
     <>
       <button onClick={() => navigate("/")}>Back</button>
+      <button className="save-comic">Save Comic</button>
       <article className="comic">
         {panels.map((panel) => {
           const charObj = characters.find(
