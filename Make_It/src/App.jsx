@@ -9,10 +9,11 @@ const App = () => {
 
   return (
     <>
-    
+
     <Routes>
       <Route path="/" element={<MainGallery/>}/>
       <Route path="/create-your-comic" element={<CreateComic/>}/>
+      <Route path="/comic/:id" element={<CreateComic/>}/>
 
     </Routes>
     </>

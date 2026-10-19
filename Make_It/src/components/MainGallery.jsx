@@ -16,9 +16,9 @@ return (
   <>
 <button className="CreateComic" onClick={()=> navigate("/create-your-comic")}>Create Your Comic</button>
 
-{savedComics.map((comic) => (
-<div key={comic.id}>
- Comic #{comic.id}
+{savedComics.map((comic , index) => (
+<div  className='comic-card'  onClick={() => navigate(`/comic/${comic.id}`)} key={comic.id}>
+ Comic #{index + 1}
 </div>
 ))}
   </>
