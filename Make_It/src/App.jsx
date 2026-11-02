@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import CreateComic from './components/CreateComic'
 import MainGallery from './components/MainGallery'
+import SavedComic from './components/SavedComic'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 
@@ -13,7 +14,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<MainGallery/>}/>
       <Route path="/create-your-comic" element={<CreateComic/>}/>
-      <Route path="/comic/:id" element={<CreateComic/>}/>
+      <Route path="/comic/:id" element={<SavedComic/>}/>
 
     </Routes>
     </>

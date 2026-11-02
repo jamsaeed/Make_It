@@ -11,11 +11,7 @@ const SavedComic = () => {
     <>
       <main>
         <div className="savedcomicpage">
-          {panels.map((panel) => {
-            const savedObj = characters.find(
-              (obj) => obj.id === panel.droppedCharacter
-            )
-          })}
+          
         </div>
       </main>
     </>
