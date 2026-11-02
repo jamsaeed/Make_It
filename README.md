@@ -1,5 +1,5 @@
 # Make_It!
-🚧IN progress....🚧
+🚧IN Development....🚧
 A Drag and Drop Comic Maker 
 
 
