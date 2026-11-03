@@ -33,7 +33,8 @@ export default MainGallery
 // localStorage.setItem("key", "value");
 
 // // Retrieve data
-// const value = localStorage.getItem("key");
+// const value =
+//  localStorage.getItem("key");
 
 // // Remove data
 // localStorage.removeItem("key");

@@ -143,7 +143,7 @@ const CreateComic = () => {
       </article>
 
       <div className="footerNav-bar">
-        {" "}
+        {/* {" "} */}
         Drag The Characters
         <div className="Character-Rendering">
           {characters.map((character) => (
