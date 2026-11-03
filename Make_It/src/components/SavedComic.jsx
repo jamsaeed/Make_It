@@ -3,33 +3,41 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import characters from "../data/characters.js"
 
-
 const SavedComic = () => {
   const { id } = useParams()
+  let navigate = useNavigate()
 
+  const saveComic = JSON.parse(localStorage.getItem("SaveComic")) || []
 
-  const saveComic = JSON.parse(localStorage.getItem('SaveComic')) || []
+  const findComic = saveComic.find(
+    (savesComic) => savesComic.id === parseInt(id)
+  )
 
-   const findComic = saveComic.find((savesComic) => savesComic.id === parseInt(id))
-
-
-  console.log(id ,'id is correct');
-  console.log(saveComic ,'save is correct');
-  console.log(findComic ,'find is correct');
-
+  console.log(id, "id is correct")
+  console.log(saveComic, "save is correct")
+  console.log(findComic, "find is correct")
 
   return (
     <>
       <main>
-
-        <div className="panel"></div>
-        <div className="Character-Rendering">
-          {characters.map((character) => (
-            <img src={character.src} alt={character.alt} />
-          ))}
-
+        <button onClick={() => navigate("/")}>Back</button>
+        <article>
+          {findComic.panels.map((saved) => {
+            return (
+              <div className="panel" key={saved.id}>
+                {saved.droppedCharacter.map((savedChar) => {
+                  const CharObj = characters.find(
+                    (character) => character.id === savedChar
+                  )
+                  return (
+                    <img key={CharObj.id} src={CharObj.src} alt={CharObj.alt} />
+                  )
+                })}
+                {saved.SpeechBubble && <p>{saved.SpeechBubble}</p>}
               </div>
-
+            )
+          })}
+        </article>
       </main>
     </>
   )
