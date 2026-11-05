@@ -26,6 +26,7 @@ Make It ! is a creative drag-and-drop comic maker built with *<strong>React</str
 * Authentication
 * fully responsive app
 * customized speech bubbles
+
   ---
 
 ***More updates coming soon***
