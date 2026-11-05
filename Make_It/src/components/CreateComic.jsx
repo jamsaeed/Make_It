@@ -112,7 +112,7 @@ const CreateComic = () => {
                     key={index}
                     src={CharacterObject.src}
                     alt={CharacterObject.alt}
-                    style={{ width: "145px", height: "auto" }}
+                    style={{ width: "143px", height: "auto" }}
                   />
                 )
               })}

@@ -13,6 +13,15 @@ const SavedComic = () => {
     (savesComic) => savesComic.id === parseInt(id)
   )
 
+  if (!findComic){
+    return (
+      <main>
+        <button onClick={() => navigate("/")}>Back</button>
+        <p>Comic not found.</p>
+      </main>
+    )
+  }
+
   console.log(id, "id is correct")
   console.log(saveComic, "save is correct")
   console.log(findComic, "find is correct")
@@ -21,7 +30,7 @@ const SavedComic = () => {
     <>
       <main>
         <button onClick={() => navigate("/")}>Back</button>
-        <article>
+        <article className="comic">
           {findComic.panels.map((saved) => {
             return (
               <div className="panel" key={saved.id}>
@@ -29,11 +38,12 @@ const SavedComic = () => {
                   const CharObj = characters.find(
                     (character) => character.id === savedChar
                   )
+                  if (!CharObj) return null
                   return (
-                    <img key={CharObj.id} src={CharObj.src} alt={CharObj.alt} />
+                    <img key={CharObj.id} src={CharObj.src} alt={CharObj.alt} style={{ width: "143px", height: "auto" }}/>
                   )
                 })}
-                {saved.SpeechBubble && <p>{saved.SpeechBubble}</p>}
+                {saved.SpeechBubble && <p className="speech">{saved.SpeechBubble}</p>}
               </div>
             )
           })}
