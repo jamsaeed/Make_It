@@ -29,6 +29,9 @@ const SavedComic = () => {
   return (
     <>
       <main>
+        <button className="export"> Export</button>
+
+
         <button onClick={() => navigate("/")}>Back</button>
         <article className="comic">
           {findComic.panels.map((saved) => {
