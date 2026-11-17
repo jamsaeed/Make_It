@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
   margin:0;
   padding:0;
   background: rgb(255, 241, 233);
@@ -106,11 +106,11 @@ html, body {
 }
 .panel:nth-child(9) {
   flex-basis: 200px;
-}
+} */
 
 /* background colours */
 
-.panel:nth-child(4n+1) {
+/* .panel:nth-child(4n+1) {
   background-image:radial-gradient(circle, rgb(245, 218, 255), rgb(237, 194, 255));
 }
 
@@ -185,13 +185,13 @@ button:hover{
   height:15vh;
   width:50vh;
 
-}
+} */
 
 /* input{
   width: 120px;
 } */
 
-.comic-card {
+/* .comic-card {
   background-color:#fff;
   border:solid 2px #000;
   box-shadow:0 6px 6px -6px #000;
@@ -201,4 +201,334 @@ button:hover{
   margin:1vmin;
   overflow:hidden;
   position:relative;
+} */
+
+
+/* fixed CSS with AI/ Claude */
+
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap");
+
+/* ---------- PAGE BASICS ---------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(255, 241, 233);
+}
+
+body {
+  display: block; /* undo Vite's default centering */
+  min-width: 0;
+  padding-bottom: 60px; /* room so the tray label never covers the last panels */
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  color: #111;
+}
+
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ---------- COMIC PAGE ---------- */
+.comic {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+}
+
+/* the wrapper that gets photographed on the Download button,
+   so the exported image is just the comic page, not the whole screen */
+.exporting > div {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgb(255, 241, 233);
+}
+
+/* ---------- PANELS ---------- */
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end; /* characters sit at the bottom */
+  justify-content: center;
+  flex: 1 1 0;
+  min-height: 360px; /* change this number to make panels taller or shorter */
+  margin: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #fff;
+  border: 3px solid #111;
+  box-shadow: 5px 5px 0 #111;
+  color: #111;
+}
+
+.panel img {
+  flex: 0 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* page layout: big panel + 2 small, 3 equal, big panel + 2 small */
+.panel:nth-child(1) {
+  flex-basis: 400px;
+}
+.panel:nth-child(2) {
+  flex-basis: 200px;
+}
+.panel:nth-child(3) {
+  flex-basis: 200px;
+}
+.panel:nth-child(4) {
+  flex-basis: 200px;
+}
+.panel:nth-child(5) {
+  flex-basis: 200px;
+}
+.panel:nth-child(6) {
+  flex-basis: 200px;
+}
+.panel:nth-child(7) {
+  flex-basis: 400px;
+}
+.panel:nth-child(8) {
+  flex-basis: 200px;
+}
+.panel:nth-child(9) {
+  flex-basis: 200px;
+}
+
+/* pastel panel backgrounds */
+.panel:nth-child(4n + 1) {
+  background-image: radial-gradient(circle, rgb(245, 218, 255), rgb(237, 194, 255));
+}
+.panel:nth-child(4n + 2) {
+  background-image: radial-gradient(circle, rgb(199, 242, 255), rgb(126, 209, 237));
+}
+.panel:nth-child(4n + 3) {
+  background-image: radial-gradient(circle, rgb(212, 255, 212), rgb(231, 255, 183));
+}
+.panel:nth-child(4n + 4) {
+  background-image: radial-gradient(circle, rgb(255, 214, 244), rgb(255, 177, 211));
+}
+
+/* ---------- SPEECH BUBBLE ---------- */
+.speech {
+  order: -1; /* bubble always goes above the characters */
+  flex: 0 0 100%;
+  max-width: 85%;
+  box-sizing: border-box;
+  margin: 8px auto 30px; /* bottom space leaves room for the tail */
+  padding: 0.5em 1em;
+  position: relative;
+  background-color: #fff;
+  border: 2px solid #111;
+  border-radius: 14px;
+  font-family: "Comic Neue", "Comic Sans MS", cursive;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-align: center;
+  color: #111;
+  overflow-wrap: anywhere;
+}
+
+.speech:before {
+  border: solid 12px transparent;
+  border-left: solid 12px #111;
+  border-top: solid 12px #111;
+  bottom: -24px;
+  content: "";
+  height: 0;
+  left: 24px;
+  position: absolute;
+  transform: skew(-15deg);
+  width: 0;
+}
+
+.speech:after {
+  border: solid 10px transparent;
+  border-left: solid 10px #fff;
+  border-top: solid 10px #fff;
+  bottom: -19px;
+  content: "";
+  height: 0;
+  left: 27px;
+  position: absolute;
+  transform: skew(-15deg);
+  width: 0;
+}
+
+/* the typing box in the editor: same family as the bubble, but dashed = "type here" */
+input.speech {
+  display: block;
+  flex: 0 0 auto;
+  width: calc(100% - 16px);
+  max-width: none;
+  margin: 8px;
+  padding: 6px 10px;
+  border: 2px dashed #111;
+  background-color: #fffbe6;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+input.speech:before,
+input.speech:after {
+  display: none; /* the tail belongs only to the real bubble */
+}
+
+input.speech::placeholder {
+  color: #777;
+}
+
+input.speech:focus {
+  outline: none;
+  border-style: solid;
+  background-color: #fff;
+  box-shadow: 3px 3px 0 #501a89;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  width: auto;
+  height: auto;
+  margin: 9px;
+  padding: 8px 18px;
+  background-color: #501a89;
+  color: #fff;
+  border: 3px solid #111;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 #111;
+  font-family: "Bangers", "Comic Sans MS", cursive;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease,
+    background-color 0.1s ease;
+}
+
+button:hover {
+  background-color: #ffd23f;
+  color: #111;
+  border-color: #111;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #111;
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #111;
+}
+
+.save-comic {
+  background-color: #ff8fc7;
+  color: #111;
+}
+
+.export {
+  background-color: #7ed1ed;
+  color: #111;
+}
+
+.CreateComic {
+  padding: 18px 36px;
+  margin: 24px 12px;
+  font-size: 2rem;
+}
+
+/* ---------- GALLERY CARDS ---------- */
+.comic-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 190px;
+  height: 130px;
+  margin: 14px;
+  position: relative;
+  background-image: radial-gradient(circle, rgb(245, 218, 255), rgb(237, 194, 255));
+  border: 3px solid #111;
+  box-shadow: 5px 5px 0 #111;
+  color: #111;
+  font-family: "Bangers", "Comic Sans MS", cursive;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.comic-card:nth-of-type(4n + 2) {
+  background-image: radial-gradient(circle, rgb(199, 242, 255), rgb(126, 209, 237));
+}
+.comic-card:nth-of-type(4n + 3) {
+  background-image: radial-gradient(circle, rgb(212, 255, 212), rgb(231, 255, 183));
+}
+.comic-card:nth-of-type(4n + 4) {
+  background-image: radial-gradient(circle, rgb(255, 214, 244), rgb(255, 177, 211));
+}
+
+.comic-card:hover {
+  transform: translate(-3px, -3px) rotate(-1deg);
+  box-shadow: 8px 8px 0 #111;
+}
+
+/* ---------- CHARACTER TRAY (bottom of the editor) ---------- */
+.footerNav-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-top: 8px;
+  background-color: #501a89;
+  border-top: 4px solid #111;
+  color: #fff;
+  text-align: center;
+  font-family: "Bangers", "Comic Sans MS", cursive;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  /* only the label bar stays visible until you hover */
+  transform: translateY(calc(100% - 44px));
+  transition: transform 0.4s ease;
+}
+
+.footerNav-bar:hover {
+  transform: translateY(0);
+}
+
+.Character-Rendering {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.Character-Rendering img {
+  box-sizing: border-box;
+  width: 84px;
+  height: auto;
+  padding: 4px;
+  background-color: #fff;
+  border: 3px solid #111;
+  border-radius: 10px;
+  cursor: grab;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.Character-Rendering img:hover {
+  background-color: #ffd23f;
+  transform: translateY(-4px) rotate(-3deg);
+}
+
+.Character-Rendering img:active {
+  cursor: grabbing;
 }

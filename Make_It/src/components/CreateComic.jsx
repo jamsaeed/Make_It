@@ -65,7 +65,7 @@ const CreateComic = () => {
      const newComic = {id: Date.now(), panels: panels }
     // here can be written any names it doesn't have to be SaveComic
      localStorage.setItem('SaveComic', JSON.stringify([...existingComic, newComic]))
-      console.log('button was clicked');
+      // console.log('button was clicked');
       navigate('/')
 
   }
