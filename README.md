@@ -1,7 +1,8 @@
-# Make_It! – Drag & Drop Comic Maker
-🚧IN Development....🚧
+# Make It! – Drag & Drop Comic Maker
 
-Make It ! is a creative drag-and-drop comic maker built with *<strong>React</strong>*. it allows users to create their own comics by placing 25 character to 9 panels, writing dialogues, and saving their creations
+> Demo version 0.0 complete, current version works best on desktop
+
+Make It! is a creative drag-and-drop comic maker built with *<strong>React</strong>*. it allows users to create their own comics by placing 25 character to 9 panels, writing dialogues, and saving their creations
 
 ### Current Features
 
@@ -9,11 +10,11 @@ Make It ! is a creative drag-and-drop comic maker built with *<strong>React</str
 * Speech input/bubble - writing your own dialogues
 * Saving functionality – saving a comic
 * Making your own comic
+* EXPORTING/downloading saved comic
+*
 
 ### Currently Working on
-
-* EXPORTING saved comic
-* FIXING/REFINING UI + current css
+* Deploying it on vercel
 
 ### Future Features
 * multiple comic panels
@@ -26,6 +27,8 @@ Make It ! is a creative drag-and-drop comic maker built with *<strong>React</str
 * Authentication
 * fully responsive app
 * customized speech bubbles
+* adding dnd kit library
+* Make it! work on phones as well as current dnd is not supported on mobile phones
 
   ---
 
