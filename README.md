@@ -2,6 +2,8 @@
 
 > Demo version 0.0 complete, current version works best on desktop
 
+[LIVE](https://make-it-comic.vercel.app/) <br/>
+
 Make It! is a creative drag-and-drop comic maker built with *<strong>React</strong>*. it allows users to create their own comics by placing 25 character to 9 panels, writing dialogues, and saving their creations
 
 ### Current Features
@@ -11,10 +13,7 @@ Make It! is a creative drag-and-drop comic maker built with *<strong>React</stro
 * Saving functionality – saving a comic
 * Making your own comic
 * EXPORTING/downloading saved comic
-*
-
-### Currently Working on
-* Deploying it on vercel
+* Deployed – check it out [HERE!](https://make-it-comic.vercel.app/)
 
 ### Future Features
 * multiple comic panels
